@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to your Jupyter Book &#8212; My sample book</title>
+    <title>欢迎来到科学计算教程 &#8212; My sample book</title>
   
   
   
@@ -196,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to your Jupyter Book
+                    欢迎来到科学计算教程
                 </a>
             </li>
         </ul>
@@ -376,7 +376,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -387,11 +389,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to your Jupyter Book</h1>
+    <h1>欢迎来到科学计算教程</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">章节导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何使用本教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">在线资源</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -401,13 +414,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-your-jupyter-book">
-<h1>Welcome to your Jupyter Book<a class="headerlink" href="#welcome-to-your-jupyter-book" title="Permalink to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>欢迎来到科学计算教程<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p>这是一本关于科学计算的在线教程，旨在帮助您掌握科学计算的基础知识和实践技能。本教程涵盖了以下主要内容：</p>
+<section id="id2">
+<h2>主要内容<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>基础数学知识</strong>: 线性代数、微积分、概率统计</p></li>
+<li><p><strong>编程基础</strong>: Python编程、NumPy、SciPy库的使用</p></li>
+<li><p><strong>数值计算方法</strong>: 数值积分、微分方程求解、优化算法</p></li>
+<li><p><strong>数据分析</strong>: 数据处理、可视化、统计分析</p></li>
+<li><p><strong>实际应用</strong>: 真实案例分析与实践</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>章节导航<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="xref std std-doc">chapter1_basics</span></p></li>
+<li><p><a class="reference internal" href="markdown.html"><span class="doc">Markdown Files</span></a></p></li>
+<li><p><a class="reference internal" href="notebooks.html"><span class="doc">Content with notebooks</span></a></p></li>
+<li><p><a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a></p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>如何使用本教程<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>按照章节顺序学习，每个主题都建立在前面的知识基础之上</p></li>
+<li><p>动手实践每个章节的代码示例</p></li>
+<li><p>完成课后练习来巩固所学知识</p></li>
+<li><p>参与讨论，分享您的见解和问题</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2>在线资源<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Yingurt/scientific-computation-book">源代码仓库</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Yingurt/scientific-computation-book/discussions">在线讨论区</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Yingurt/scientific-computation-book/issues">问题反馈</a></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown 语法指南</a></li>
@@ -415,6 +459,7 @@ It does not go in-depth into any particular topic - check out <a class="referenc
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -462,6 +507,23 @@ It does not go in-depth into any particular topic - check out <a class="referenc
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">章节导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何使用本教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">在线资源</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
