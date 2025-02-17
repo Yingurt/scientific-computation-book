@@ -1,0 +1,12 @@
+# Table of contents
+format: jb-book
+root: intro
+chapters:
+- file: chapter1_basics
+  title: 第一章：科学计算基础
+- file: markdown
+  title: Markdown 语法指南
+- file: notebooks
+  title: Jupyter Notebooks 教程
+- file: markdown-notebooks
+  title: MyST Markdown 使用指南 

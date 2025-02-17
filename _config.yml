@@ -1,14 +1,15 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: My sample book
-author: The Jupyter Book Community
+title: 科学计算教程
+author: Your Name
+copyright: "2024"
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: "off"
+  execute_notebooks: force
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -21,9 +22,9 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/Yingurt/scientific-computation-book  # 你的 GitHub 仓库
-  path_to_book: ""  # 如果你的 Jupyter Book 在根目录，不需要这个
-  branch: gh-pages  # 确保这里是 `gh-pages`，而不是 `master`
+  url: https://github.com/Yingurt/scientific-computation-book
+  path_to_book: _sources
+  branch: main
 
 
 # Add GitHub buttons to your book
@@ -32,4 +33,10 @@ html:
   use_issues_button: true
   use_repository_button: true
   nojekyll: true  # 这一行是关键
+
+# 添加以下配置来指定源文件目录
+sphinx:
+  config:
+    master_doc: intro
+    source_dir: _sources
 
