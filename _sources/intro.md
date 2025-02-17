@@ -12,10 +12,10 @@
 
 ## 章节导航
 
-- {doc}`chapter1_basics`
-- {doc}`markdown`
-- {doc}`notebooks`
-- {doc}`markdown-notebooks`
+- {doc}`chapter1_basics` - 科学计算基础
+- {doc}`markdown` - Markdown 语法指南
+- {doc}`notebooks` - Jupyter Notebooks 教程
+- {doc}`markdown-notebooks` - MyST Markdown 使用指南
 
 ## 如何使用本教程
 
