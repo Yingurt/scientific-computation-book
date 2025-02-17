@@ -400,9 +400,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">章节导航</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何使用本教程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">在线资源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.1 Python环境配置</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">章节导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">如何使用本教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">在线资源</a></li>
 </ul>
             </nav>
         </div>
@@ -427,8 +431,23 @@ document.write(`
 <li><p><strong>实际应用</strong>: 真实案例分析与实践</p></li>
 </ul>
 </section>
+<section id="python">
+<h2>1.1 Python基础<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
 <section id="id3">
-<h2>章节导航<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h3>1.1.1 Python环境配置<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>在开始学习科学计算之前，我们需要配置好Python环境。推荐使用Anaconda发行版，它包含了大多数我们需要的科学计算包。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 安装Anaconda后，创建新的环境</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>scicomp<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+conda<span class="w"> </span>activate<span class="w"> </span>scicomp
+
+<span class="c1"># 安装必要的包</span>
+conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>jupyter
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2>章节导航<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><span class="xref std std-doc">chapter1_basics</span> - 科学计算基础</p></li>
 <li><p><a class="reference internal" href="markdown.html"><span class="doc">Markdown Files</span></a> - Markdown 语法指南</p></li>
@@ -436,8 +455,8 @@ document.write(`
 <li><p><a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a> - MyST Markdown 使用指南</p></li>
 </ul>
 </section>
-<section id="id4">
-<h2>如何使用本教程<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<section id="id5">
+<h2>如何使用本教程<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>按照章节顺序学习，每个主题都建立在前面的知识基础之上</p></li>
 <li><p>动手实践每个章节的代码示例</p></li>
@@ -445,8 +464,8 @@ document.write(`
 <li><p>参与讨论，分享您的见解和问题</p></li>
 </ol>
 </section>
-<section id="id5">
-<h2>在线资源<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<section id="id6">
+<h2>在线资源<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/Yingurt/scientific-computation-book">源代码仓库</a></p></li>
 <li><p><a class="reference external" href="https://github.com/Yingurt/scientific-computation-book/discussions">在线讨论区</a></p></li>
@@ -517,9 +536,13 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">主要内容</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">章节导航</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">如何使用本教程</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">在线资源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.1 Python环境配置</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">章节导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">如何使用本教程</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">在线资源</a></li>
 </ul>
   </nav></div>
 
