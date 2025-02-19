@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; 科学计算教程</title>
+    <title>第二章：高级计算 &#8212; 科学计算教程</title>
   
   
   
@@ -201,8 +201,9 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter1_basics.html">第一章：科学计算基础</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">第二章：张赢的新征程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown 语法指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebooks 教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
@@ -391,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>第二章：高级计算</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,9 +401,12 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1 Python环境配置</a></li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -413,7 +417,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>第二章：高级计算<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="python">
+<h2>1.1 Python基础<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
+<section id="id2">
+<h3>1.1.1 Python环境配置<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>在开始学习科学计算之前，我们需要配置好Python环境。推荐使用Anaconda发行版，它包含了大多数我们需要的科学计算包。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 安装Anaconda后，创建新的环境</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>scicomp<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+conda<span class="w"> </span>activate<span class="w"> </span>scicomp
+
+<span class="c1"># 安装必要的包</span>
+conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>jupyter
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -476,9 +498,12 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1 Python环境配置</a></li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
