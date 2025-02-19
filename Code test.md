@@ -4,13 +4,9 @@
 
 ```{code-cell} python3
 print("Hello from Thebe and Jupyter Book!")
-111
-1
-1
+```
 
-1
-1
 
-1
-1
-1
+```{seealso}
+这个绿色框框好好看！
+```
