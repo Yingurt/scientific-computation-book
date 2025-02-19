@@ -13,12 +13,12 @@ greet("World")
 ```
 Gaussian elimination is a systematic method for solving systems of linear equations. It transforms the system's augmented matrix into a row-echelon form, making it easier to solve for the unknowns through back substitution.
 
-
 ```{code-cell} python3
-# 点击上方的 ▶️ 按钮以运行此代码块
-print("Hello, Jupyter Book + Thebe!")
-
-
+import numpy as np
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+print(y)
+```
 
 
 
