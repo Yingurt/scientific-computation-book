@@ -1,144 +1,127 @@
-# 第二章：高级计算
+# Chapter 2: Direct Methods
 
-## 1.1 Python基础
+## 2.1 Gaussian Elimination
 
-### 1.1.1 Python环境配置
+### 2.1.1 Motivation
+```{code-cell} python
+# 这是一个可运行的 Python 代码单元格
+def greet(name):
+    return f"Hello, {name}!"
 
-在开始学习科学计算之前，我们需要配置好Python环境。推荐使用Anaconda发行版，它包含了大多数我们需要的科学计算包。
-
-```bash
-# 安装Anaconda后，创建新的环境
-conda create -n scicomp python=3.9
-conda activate scicomp
-
-# 安装必要的包
-conda install numpy scipy matplotlib pandas jupyter
+greet("World")
 ```
+Gaussian elimination is a systematic method for solving systems of linear equations. It transforms the system's augmented matrix into a row-echelon form, making it easier to solve for the unknowns through back substitution.
 
+### 2.1.2 Gaussian Elimination
 
-### 1.1.2 基本数据类型和操作
+The method consists of the following steps:
 
-Python中的基本数据类型：
+- **Forward Elimination:** Transform the matrix into an upper triangular form.
+- **Back Substitution:** Solve for variables starting from the last equation.
 
-```python
-# 数值类型
-x = 42        # 整数
-y = 3.14      # 浮点数
-z = 2 + 3j    # 复数
+### 2.1.3 Backward Substitution
 
-# 序列类型
-lst = [1, 2, 3]          # 列表
-tup = (1, 2, 3)          # 元组
-arr = np.array([1,2,3])  # NumPy数组
+Once the system is in upper triangular form, back substitution is performed by solving each equation starting from the bottom row and substituting known values upwards.
 
-# 字典
-d = {'a': 1, 'b': 2}
-```
+### 2.1.4 Complexity (Operation Counts)
 
-## 1.2 线性代数基础
+Gaussian elimination has a computational complexity of $O(n^3)$ for an $n \times n$ system. This section explores the efficiency and performance considerations of the algorithm.
 
-### 1.2.1 向量和矩阵
+### 2.1.5 Vectorisation
 
-使用NumPy进行向量和矩阵运算：
+Vectorisation refers to rewriting code to use vector operations, improving computational performance. In Python, libraries like NumPy can be used for efficient vectorised implementations.
 
-```python
-import numpy as np
+### 2.1.6 Standard Pivoting
 
-# 创建向量
-v = np.array([1, 2, 3])
+Pivoting enhances numerical stability during Gaussian elimination. The most common strategies are:
 
-# 创建矩阵
-A = np.array([[1, 2], [3, 4]])
+- **Partial Pivoting:** Swapping rows to ensure the largest element (by absolute value) is the pivot.
+- **Full Pivoting:** Swapping rows and columns for maximum pivot element.
 
-# 矩阵运算
-B = np.array([[5, 6], [7, 8]])
-print("矩阵加法：")
-print(A + B)
-print("\n矩阵乘法：")
-print(np.dot(A, B))
-```
+### 2.1.7 Additional Exercises
 
-### 1.2.2 特征值和特征向量
+- Implement Gaussian elimination in Python.
+- Experiment with systems that have no solutions or infinite solutions.
 
-```python
-# 计算特征值和特征向量
-eigenvalues, eigenvectors = np.linalg.eig(A)
-print("特征值：", eigenvalues)
-print("特征向量：\n", eigenvectors)
-```
+### 2.1.8 Additional Computing Activities
 
-## 1.3 微积分基础
+- Compare execution time between vectorised and non-vectorised implementations.
+- Use partial pivoting to observe changes in numerical stability.
 
-### 1.3.1 数值微分
+---
 
-使用Python计算导数：
+## 2.2 Pivoting Strategies and Round-Off Errors
 
-```python
-from scipy.misc import derivative
+### 2.2.1 Motivation
 
-def f(x):
-    return x**2
+Pivoting is essential for avoiding division by small numbers, which can cause significant round-off errors. This section explains why certain pivoting strategies are critical in computational methods.
 
-# 计算在x=2点的导数
-x0 = 2
-dx = derivative(f, x0, dx=1e-6)
-print(f"f'({x0}) ≈ {dx}")
-```
+### 2.2.2 A Brief Note on Floating Point Arithmetic
 
-### 1.3.2 数值积分
+Floating point arithmetic is prone to rounding errors due to finite precision. Understanding these errors is essential for developing stable numerical algorithms.
 
-```python
-from scipy import integrate
+### 2.2.3 Round-Off Error and Gaussian Elimination
 
-# 定义被积函数
-def g(x):
-    return np.sin(x)
+Round-off errors accumulate during Gaussian elimination. Appropriate pivoting strategies help minimize these errors.
 
-# 计算定积分
-result, error = integrate.quad(g, 0, np.pi)
-print(f"∫sin(x)dx from 0 to π ≈ {result}")
-```
+### 2.2.4 Partial Pivoting
 
-## 1.4 概率与统计
+Partial pivoting selects the largest pivot element in absolute value to reduce round-off errors.
 
-### 1.4.1 基本统计量
+### 2.2.5 Scaled Partial Pivoting
 
-```python
-import numpy as np
+Scaled partial pivoting considers the scale of each row, providing a more balanced approach for numerical stability.
 
-data = np.random.normal(0, 1, 1000)  # 生成正态分布数据
+### 2.2.6 Additional Problems
 
-print(f"均值：{np.mean(data):.3f}")
-print(f"标准差：{np.std(data):.3f}")
-print(f"中位数：{np.median(data):.3f}")
-```
+- Analyze the impact of pivoting on solution accuracy.
+- Implement scaled partial pivoting and compare with standard pivoting.
 
-### 1.4.2 概率分布
+---
 
-```python
-from scipy import stats
-import matplotlib.pyplot as plt
+## 2.3 Matrix Factorisation
 
-# 生成正态分布
-x = np.linspace(-4, 4, 100)
-y = stats.norm.pdf(x, 0, 1)
+### 2.3.1 Forward and Backward Substitution
 
-plt.plot(x, y)
-plt.title("标准正态分布")
-plt.xlabel("x")
-plt.ylabel("概率密度")
-plt.grid(True)
-plt.show()
-```
+Matrix factorisation methods like LU decomposition split a matrix into lower (L) and upper (U) triangular matrices, simplifying the solving process using forward and backward substitution.
 
-## 练习题
+### 2.3.2 Doolittle’s LU Factorisation
 
-1. 使用NumPy创建一个5x5的随机矩阵，计算其特征值和特征向量。
-2. 编写函数计算函数 f(x) = x³ + 2x² - x + 1 在x=1处的导数。
-3. 使用蒙特卡洛方法估算π的值。
+Doolittle’s method produces an LU decomposition where the diagonal of the L matrix consists of ones.
 
-## 参考资料
+### 2.3.3 Pseudocode and Python Implementation
 
-1. NumPy官方文档：[https://numpy.org/doc/](https://numpy.org/doc/)
-2. SciPy官方文档：[https://docs.scipy.org/doc/](https://docs.scipy.org/doc/)
-3. Python科学计算：第二版，张若愚著 
+This section provides pseudocode and Python examples for implementing Doolittle’s LU factorisation using NumPy.
+
+### 2.3.4 Other Types of Factorisations
+
+Other factorisation methods include:
+
+- **Cholesky Decomposition:** For symmetric, positive-definite matrices.
+- **QR Decomposition:** Used for solving least-squares problems.
+
+### 2.3.5 Doolittle’s Factorisation from Gaussian Elimination
+
+The LU decomposition can be obtained as a by-product of Gaussian elimination, saving computational resources.
+
+### 2.3.6 Permutation Matrices
+
+Permutation matrices represent row swaps in pivoting strategies, playing a crucial role in LU factorisation with pivoting.
+
+### 2.3.7 Special Types of Matrices
+
+This section covers matrices with properties like diagonal dominance and symmetry, which simplify numerical computations.
+
+### 2.3.8 Additional Problems
+
+- Implement LU decomposition without using built-in functions.
+- Investigate how permutation matrices affect the factorisation.
+
+### 2.3.9 Computer Activities
+
+- Compare performance between Gaussian elimination and LU decomposition for large matrices.
+- Visualise permutation matrices in Python using matplotlib.
+
+---
+
+_End of Chapter 2: Direct Methods_

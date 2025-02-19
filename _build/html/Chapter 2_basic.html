@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>第二章：高级计算 &#8212; 科学计算教程</title>
+    <title>Chapter 2: Direct Methods &#8212; 科学计算教程</title>
   
   
   
@@ -72,6 +72,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter 2_basic';</script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/underscore.js?v=e1a751a7"></script>
@@ -389,7 +391,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>第二章：高级计算</h1>
+    <h1>Chapter 2: Direct Methods</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -399,28 +401,38 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1 Python环境配置</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.2 基本数据类型和操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">2.1 Gaussian Elimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.1.1 Motivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2 Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-substitution">2.1.3 Backward Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-operation-counts">2.1.4 Complexity (Operation Counts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">2.1.5 Vectorisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-pivoting">2.1.6 Standard Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">2.1.7 Additional Exercises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-computing-activities">2.1.8 Additional Computing Activities</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.2 线性代数基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.2.1 向量和矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.2.2 特征值和特征向量</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-strategies-and-round-off-errors">2.2 Pivoting Strategies and Round-Off Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1 Motivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-floating-point-arithmetic">2.2.2 A Brief Note on Floating Point Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-and-gaussian-elimination">2.2.3 Round-Off Error and Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-pivoting">2.2.4 Partial Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-partial-pivoting">2.2.5 Scaled Partial Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-problems">2.2.6 Additional Problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.3 微积分基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.3.1 数值微分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.3.2 数值积分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorisation">2.3 Matrix Factorisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-and-backward-substitution">2.3.1 Forward and Backward Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-lu-factorisation">2.3.2 Doolittle’s LU Factorisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode-and-python-implementation">2.3.3 Pseudocode and Python Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-types-of-factorisations">2.3.4 Other Types of Factorisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-factorisation-from-gaussian-elimination">2.3.5 Doolittle’s Factorisation from Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">2.3.6 Permutation Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-types-of-matrices">2.3.7 Special Types of Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.8 Additional Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-activities">2.3.9 Computer Activities</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.4 概率与统计</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.4.1 基本统计量</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">1.4.2 概率分布</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">练习题</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">参考资料</a></li>
 </ul>
             </nav>
         </div>
@@ -432,153 +444,139 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>第二章：高级计算<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<section id="python">
-<h2>1.1 Python基础<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-2-direct-methods">
+<h1>Chapter 2: Direct Methods<a class="headerlink" href="#chapter-2-direct-methods" title="Link to this heading">#</a></h1>
+<section id="gaussian-elimination">
+<h2>2.1 Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Link to this heading">#</a></h2>
+<section id="motivation">
+<h3>2.1.1 Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h3>
+<p>Gaussian elimination is a systematic method for solving systems of linear equations. It transforms the system’s augmented matrix into a row-echelon form, making it easier to solve for the unknowns through back substitution.</p>
+</section>
+<section id="id1">
+<h3>2.1.2 Gaussian Elimination<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The method consists of the following steps:</p>
+<ul class="simple">
+<li><p><strong>Forward Elimination:</strong> Transform the matrix into an upper triangular form.</p></li>
+<li><p><strong>Back Substitution:</strong> Solve for variables starting from the last equation.</p></li>
+</ul>
+</section>
+<section id="backward-substitution">
+<h3>2.1.3 Backward Substitution<a class="headerlink" href="#backward-substitution" title="Link to this heading">#</a></h3>
+<p>Once the system is in upper triangular form, back substitution is performed by solving each equation starting from the bottom row and substituting known values upwards.</p>
+</section>
+<section id="complexity-operation-counts">
+<h3>2.1.4 Complexity (Operation Counts)<a class="headerlink" href="#complexity-operation-counts" title="Link to this heading">#</a></h3>
+<p>Gaussian elimination has a computational complexity of <span class="math notranslate nohighlight">\(O(n^3)\)</span> for an <span class="math notranslate nohighlight">\(n \times n\)</span> system. This section explores the efficiency and performance considerations of the algorithm.</p>
+</section>
+<section id="vectorisation">
+<h3>2.1.5 Vectorisation<a class="headerlink" href="#vectorisation" title="Link to this heading">#</a></h3>
+<p>Vectorisation refers to rewriting code to use vector operations, improving computational performance. In Python, libraries like NumPy can be used for efficient vectorised implementations.</p>
+</section>
+<section id="standard-pivoting">
+<h3>2.1.6 Standard Pivoting<a class="headerlink" href="#standard-pivoting" title="Link to this heading">#</a></h3>
+<p>Pivoting enhances numerical stability during Gaussian elimination. The most common strategies are:</p>
+<ul class="simple">
+<li><p><strong>Partial Pivoting:</strong> Swapping rows to ensure the largest element (by absolute value) is the pivot.</p></li>
+<li><p><strong>Full Pivoting:</strong> Swapping rows and columns for maximum pivot element.</p></li>
+</ul>
+</section>
+<section id="additional-exercises">
+<h3>2.1.7 Additional Exercises<a class="headerlink" href="#additional-exercises" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Implement Gaussian elimination in Python.</p></li>
+<li><p>Experiment with systems that have no solutions or infinite solutions.</p></li>
+</ul>
+</section>
+<section id="additional-computing-activities">
+<h3>2.1.8 Additional Computing Activities<a class="headerlink" href="#additional-computing-activities" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Compare execution time between vectorised and non-vectorised implementations.</p></li>
+<li><p>Use partial pivoting to observe changes in numerical stability.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pivoting-strategies-and-round-off-errors">
+<h2>2.2 Pivoting Strategies and Round-Off Errors<a class="headerlink" href="#pivoting-strategies-and-round-off-errors" title="Link to this heading">#</a></h2>
 <section id="id2">
-<h3>1.1.1 Python环境配置<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>在开始学习科学计算之前，我们需要配置好Python环境。推荐使用Anaconda发行版，它包含了大多数我们需要的科学计算包。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 安装Anaconda后，创建新的环境</span>
-conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>scicomp<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
-conda<span class="w"> </span>activate<span class="w"> </span>scicomp
-
-<span class="c1"># 安装必要的包</span>
-conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>matplotlib<span class="w"> </span>pandas<span class="w"> </span>jupyter
-</pre></div>
-</div>
+<h3>2.2.1 Motivation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Pivoting is essential for avoiding division by small numbers, which can cause significant round-off errors. This section explains why certain pivoting strategies are critical in computational methods.</p>
+</section>
+<section id="a-brief-note-on-floating-point-arithmetic">
+<h3>2.2.2 A Brief Note on Floating Point Arithmetic<a class="headerlink" href="#a-brief-note-on-floating-point-arithmetic" title="Link to this heading">#</a></h3>
+<p>Floating point arithmetic is prone to rounding errors due to finite precision. Understanding these errors is essential for developing stable numerical algorithms.</p>
+</section>
+<section id="round-off-error-and-gaussian-elimination">
+<h3>2.2.3 Round-Off Error and Gaussian Elimination<a class="headerlink" href="#round-off-error-and-gaussian-elimination" title="Link to this heading">#</a></h3>
+<p>Round-off errors accumulate during Gaussian elimination. Appropriate pivoting strategies help minimize these errors.</p>
+</section>
+<section id="partial-pivoting">
+<h3>2.2.4 Partial Pivoting<a class="headerlink" href="#partial-pivoting" title="Link to this heading">#</a></h3>
+<p>Partial pivoting selects the largest pivot element in absolute value to reduce round-off errors.</p>
+</section>
+<section id="scaled-partial-pivoting">
+<h3>2.2.5 Scaled Partial Pivoting<a class="headerlink" href="#scaled-partial-pivoting" title="Link to this heading">#</a></h3>
+<p>Scaled partial pivoting considers the scale of each row, providing a more balanced approach for numerical stability.</p>
+</section>
+<section id="additional-problems">
+<h3>2.2.6 Additional Problems<a class="headerlink" href="#additional-problems" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Analyze the impact of pivoting on solution accuracy.</p></li>
+<li><p>Implement scaled partial pivoting and compare with standard pivoting.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="matrix-factorisation">
+<h2>2.3 Matrix Factorisation<a class="headerlink" href="#matrix-factorisation" title="Link to this heading">#</a></h2>
+<section id="forward-and-backward-substitution">
+<h3>2.3.1 Forward and Backward Substitution<a class="headerlink" href="#forward-and-backward-substitution" title="Link to this heading">#</a></h3>
+<p>Matrix factorisation methods like LU decomposition split a matrix into lower (L) and upper (U) triangular matrices, simplifying the solving process using forward and backward substitution.</p>
+</section>
+<section id="doolittles-lu-factorisation">
+<h3>2.3.2 Doolittle’s LU Factorisation<a class="headerlink" href="#doolittles-lu-factorisation" title="Link to this heading">#</a></h3>
+<p>Doolittle’s method produces an LU decomposition where the diagonal of the L matrix consists of ones.</p>
+</section>
+<section id="pseudocode-and-python-implementation">
+<h3>2.3.3 Pseudocode and Python Implementation<a class="headerlink" href="#pseudocode-and-python-implementation" title="Link to this heading">#</a></h3>
+<p>This section provides pseudocode and Python examples for implementing Doolittle’s LU factorisation using NumPy.</p>
+</section>
+<section id="other-types-of-factorisations">
+<h3>2.3.4 Other Types of Factorisations<a class="headerlink" href="#other-types-of-factorisations" title="Link to this heading">#</a></h3>
+<p>Other factorisation methods include:</p>
+<ul class="simple">
+<li><p><strong>Cholesky Decomposition:</strong> For symmetric, positive-definite matrices.</p></li>
+<li><p><strong>QR Decomposition:</strong> Used for solving least-squares problems.</p></li>
+</ul>
+</section>
+<section id="doolittles-factorisation-from-gaussian-elimination">
+<h3>2.3.5 Doolittle’s Factorisation from Gaussian Elimination<a class="headerlink" href="#doolittles-factorisation-from-gaussian-elimination" title="Link to this heading">#</a></h3>
+<p>The LU decomposition can be obtained as a by-product of Gaussian elimination, saving computational resources.</p>
+</section>
+<section id="permutation-matrices">
+<h3>2.3.6 Permutation Matrices<a class="headerlink" href="#permutation-matrices" title="Link to this heading">#</a></h3>
+<p>Permutation matrices represent row swaps in pivoting strategies, playing a crucial role in LU factorisation with pivoting.</p>
+</section>
+<section id="special-types-of-matrices">
+<h3>2.3.7 Special Types of Matrices<a class="headerlink" href="#special-types-of-matrices" title="Link to this heading">#</a></h3>
+<p>This section covers matrices with properties like diagonal dominance and symmetry, which simplify numerical computations.</p>
 </section>
 <section id="id3">
-<h3>1.1.2 基本数据类型和操作<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Python中的基本数据类型：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 数值类型</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>        <span class="c1"># 整数</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">3.14</span>      <span class="c1"># 浮点数</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>    <span class="c1"># 复数</span>
-
-<span class="c1"># 序列类型</span>
-<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>          <span class="c1"># 列表</span>
-<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>          <span class="c1"># 元组</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># NumPy数组</span>
-
-<span class="c1"># 字典</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-</pre></div>
-</div>
+<h3>2.3.8 Additional Problems<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Implement LU decomposition without using built-in functions.</p></li>
+<li><p>Investigate how permutation matrices affect the factorisation.</p></li>
+</ul>
 </section>
+<section id="computer-activities">
+<h3>2.3.9 Computer Activities<a class="headerlink" href="#computer-activities" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Compare performance between Gaussian elimination and LU decomposition for large matrices.</p></li>
+<li><p>Visualise permutation matrices in Python using matplotlib.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>End of Chapter 2: Direct Methods</em></p>
 </section>
-<section id="id4">
-<h2>1.2 线性代数基础<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
-<section id="id5">
-<h3>1.2.1 向量和矩阵<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>使用NumPy进行向量和矩阵运算：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># 创建向量</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-
-<span class="c1"># 创建矩阵</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
-
-<span class="c1"># 矩阵运算</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;矩阵加法：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">矩阵乘法：&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-<section id="id6">
-<h3>1.2.2 特征值和特征向量<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 计算特征值和特征向量</span>
-<span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;特征值：&quot;</span><span class="p">,</span> <span class="n">eigenvalues</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;特征向量：</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="id7">
-<h2>1.3 微积分基础<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
-<section id="id8">
-<h3>1.3.1 数值微分<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
-<p>使用Python计算导数：</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.misc</span><span class="w"> </span><span class="kn">import</span> <span class="n">derivative</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="c1"># 计算在x=2点的导数</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f&#39;(</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s2">) ≈ </span><span class="si">{</span><span class="n">dx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id9">
-<h3>1.3.2 数值积分<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">integrate</span>
-
-<span class="c1"># 定义被积函数</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="c1"># 计算定积分</span>
-<span class="n">result</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;∫sin(x)dx from 0 to π ≈ </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="id10">
-<h2>1.4 概率与统计<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
-<section id="id11">
-<h3>1.4.1 基本统计量<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># 生成正态分布数据</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;均值：</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;标准差：</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;中位数：</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="id12">
-<h3>1.4.2 概率分布<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># 生成正态分布</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;标准正态分布&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;概率密度&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="id13">
-<h2>练习题<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>使用NumPy创建一个5x5的随机矩阵，计算其特征值和特征向量。</p></li>
-<li><p>编写函数计算函数 f(x) = x³ + 2x² - x + 1 在x=1处的导数。</p></li>
-<li><p>使用蒙特卡洛方法估算π的值。</p></li>
-</ol>
-</section>
-<section id="id14">
-<h2>参考资料<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>NumPy官方文档：<a class="reference external" href="https://numpy.org/doc/">https://numpy.org/doc/</a></p></li>
-<li><p>SciPy官方文档：<a class="reference external" href="https://docs.scipy.org/doc/">https://docs.scipy.org/doc/</a></p></li>
-<li><p>Python科学计算：第二版，张若愚著</p></li>
-</ol>
 </section>
 </section>
 
@@ -647,28 +645,38 @@ conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">1.1 Python基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1.1.1 Python环境配置</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1.2 基本数据类型和操作</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">2.1 Gaussian Elimination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.1.1 Motivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2 Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-substitution">2.1.3 Backward Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-operation-counts">2.1.4 Complexity (Operation Counts)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">2.1.5 Vectorisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-pivoting">2.1.6 Standard Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">2.1.7 Additional Exercises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-computing-activities">2.1.8 Additional Computing Activities</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.2 线性代数基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.2.1 向量和矩阵</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.2.2 特征值和特征向量</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-strategies-and-round-off-errors">2.2 Pivoting Strategies and Round-Off Errors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1 Motivation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-floating-point-arithmetic">2.2.2 A Brief Note on Floating Point Arithmetic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-and-gaussian-elimination">2.2.3 Round-Off Error and Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-pivoting">2.2.4 Partial Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-partial-pivoting">2.2.5 Scaled Partial Pivoting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-problems">2.2.6 Additional Problems</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">1.3 微积分基础</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">1.3.1 数值微分</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1.3.2 数值积分</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorisation">2.3 Matrix Factorisation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-and-backward-substitution">2.3.1 Forward and Backward Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-lu-factorisation">2.3.2 Doolittle’s LU Factorisation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode-and-python-implementation">2.3.3 Pseudocode and Python Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-types-of-factorisations">2.3.4 Other Types of Factorisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-factorisation-from-gaussian-elimination">2.3.5 Doolittle’s Factorisation from Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">2.3.6 Permutation Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-types-of-matrices">2.3.7 Special Types of Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.8 Additional Problems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-activities">2.3.9 Computer Activities</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">1.4 概率与统计</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">1.4.1 基本统计量</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">1.4.2 概率分布</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">练习题</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">参考资料</a></li>
 </ul>
   </nav></div>
 
