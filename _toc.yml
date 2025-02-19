@@ -14,3 +14,7 @@ chapters:
   title: Jupyter Notebooks 教程
 - file: markdown-notebooks
   title: MyST Markdown 使用指南
+- file: Code test
+  title: 代码测试
+- file: construction
+  title: 搭建思路
