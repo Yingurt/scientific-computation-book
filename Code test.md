@@ -1,5 +1,19 @@
 # 测试交互式代码
 
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 这是一个测试交互式代码运行按钮的简单页面。
 
 ```{code-cell}
