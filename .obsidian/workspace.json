@@ -214,9 +214,11 @@
   "active": "28f9dd812f182285",
   "lastOpenFiles": [
     "construction.md",
-    "Code test.md",
-    "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "markdown-notebooks.md",
+    "Code test.md",
+    "intro.md",
+    "markdown.md",
+    "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "construction~.md",
     "intro~.md",
     "_toc~.yml",
@@ -226,7 +228,6 @@
     "_build/html/_sources/chapter1_basics.md",
     "_build/html/chapter1_basics.html",
     "_build/html/_sources/Chapter 2_basic.md",
-    "_build/html/Chapter 2_basic.html",
-    "markdown.md"
+    "_build/html/Chapter 2_basic.html"
   ]
 }
