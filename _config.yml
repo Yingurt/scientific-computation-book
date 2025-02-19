@@ -40,3 +40,9 @@ sphinx:
     master_doc: intro
     source_dir: _sources
 
+launch_buttons:
+  thebe: true   # 启用 Thebe
+  binderhub_url: "https://mybinder.org"  # 使用 Binder 提供的运行环境
+
+thebe_config:
+  use_thebe_lab: true  # 使用 JupyterLab 环境（可选）
