@@ -1,5 +1,3 @@
-# 测试交互式代码
-
 ---
 jupytext:
   formats: md:myst
@@ -12,6 +10,9 @@ kernelspec:
   display_name: Python 3
   language: python
   name: python3
+---
+# 测试交互式代码
+
 ---
 
 这是一个测试交互式代码运行按钮的简单页面。

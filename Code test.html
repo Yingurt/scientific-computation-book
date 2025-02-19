@@ -255,6 +255,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/Yingurt/scientific-computation-book/main?urlpath=tree/_sources/Code test.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -307,6 +356,23 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Code test.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -381,9 +447,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -399,24 +463,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-13-jupytext-version-1-11-5-kernelspec-display-name-python-3-language-python-name-python3">jupytext:
-formats: md:myst
-text_representation:
-extension: .md
-format_name: myst
-format_version: 0.13
-jupytext_version: 1.11.5
-kernelspec:
-display_name: Python 3
-language: python
-name: python3</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -429,19 +475,31 @@ name: python3</a></li>
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>测试交互式代码<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
-<section id="jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-13-jupytext-version-1-11-5-kernelspec-display-name-python-3-language-python-name-python3">
-<h2>jupytext:
-formats: md:myst
-text_representation:
-extension: .md
-format_name: myst
-format_version: 0.13
-jupytext_version: 1.11.5
-kernelspec:
-display_name: Python 3
-language: python
-name: python3<a class="headerlink" href="#jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-13-jupytext-version-1-11-5-kernelspec-display-name-python-3-language-python-name-python3" title="Permalink to this heading">#</a></h2>
 <p>这是一个测试交互式代码运行按钮的简单页面。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello from Thebe and Jupyter Book!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello from Thebe and Jupyter Book!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>这个绿色框框好好看！</p>
@@ -458,7 +516,6 @@ name: python3<a class="headerlink" href="#jupytext-formats-md-myst-text-represen
 <p class="admonition-title">Note</p>
 <p>这里是我的图表：</p>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -515,30 +572,6 @@ name: python3<a class="headerlink" href="#jupytext-formats-md-myst-text-represen
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-13-jupytext-version-1-11-5-kernelspec-display-name-python-3-language-python-name-python3">jupytext:
-formats: md:myst
-text_representation:
-extension: .md
-format_name: myst
-format_version: 0.13
-jupytext_version: 1.11.5
-kernelspec:
-display_name: Python 3
-language: python
-name: python3</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
