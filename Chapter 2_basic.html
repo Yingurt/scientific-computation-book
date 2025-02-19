@@ -95,8 +95,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter 2_basic';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -406,34 +404,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">2.1 Gaussian Elimination</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.1.1 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2 Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-substitution">2.1.3 Backward Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-operation-counts">2.1.4 Complexity (Operation Counts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">2.1.5 Vectorisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-pivoting">2.1.6 Standard Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">2.1.7 Additional Exercises</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-computing-activities">2.1.8 Additional Computing Activities</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-strategies-and-round-off-errors">2.2 Pivoting Strategies and Round-Off Errors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-floating-point-arithmetic">2.2.2 A Brief Note on Floating Point Arithmetic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-and-gaussian-elimination">2.2.3 Round-Off Error and Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-pivoting">2.2.4 Partial Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-partial-pivoting">2.2.5 Scaled Partial Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-problems">2.2.6 Additional Problems</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorisation">2.3 Matrix Factorisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-and-backward-substitution">2.3.1 Forward and Backward Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-lu-factorisation">2.3.2 Doolittle’s LU Factorisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode-and-python-implementation">2.3.3 Pseudocode and Python Implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-types-of-factorisations">2.3.4 Other Types of Factorisations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-factorisation-from-gaussian-elimination">2.3.5 Doolittle’s Factorisation from Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">2.3.6 Permutation Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-types-of-matrices">2.3.7 Special Types of Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.8 Additional Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-activities">2.3.9 Computer Activities</a></li>
 </ul>
 </li>
 </ul>
@@ -455,131 +425,6 @@ document.write(`
 <h3>2.1.1 Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h3>
 <p>Gaussian elimination is a systematic method for solving systems of linear equations. It transforms the system’s augmented matrix into a row-echelon form, making it easier to solve for the unknowns through back substitution.</p>
 </section>
-<section id="id1">
-<h3>2.1.2 Gaussian Elimination<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>The method consists of the following steps:</p>
-<ul class="simple">
-<li><p><strong>Forward Elimination:</strong> Transform the matrix into an upper triangular form.</p></li>
-<li><p><strong>Back Substitution:</strong> Solve for variables starting from the last equation.</p></li>
-</ul>
-</section>
-<section id="backward-substitution">
-<h3>2.1.3 Backward Substitution<a class="headerlink" href="#backward-substitution" title="Permalink to this heading">#</a></h3>
-<p>Once the system is in upper triangular form, back substitution is performed by solving each equation starting from the bottom row and substituting known values upwards.</p>
-</section>
-<section id="complexity-operation-counts">
-<h3>2.1.4 Complexity (Operation Counts)<a class="headerlink" href="#complexity-operation-counts" title="Permalink to this heading">#</a></h3>
-<p>Gaussian elimination has a computational complexity of <span class="math notranslate nohighlight">\(O(n^3)\)</span> for an <span class="math notranslate nohighlight">\(n \times n\)</span> system. This section explores the efficiency and performance considerations of the algorithm.</p>
-</section>
-<section id="vectorisation">
-<h3>2.1.5 Vectorisation<a class="headerlink" href="#vectorisation" title="Permalink to this heading">#</a></h3>
-<p>Vectorisation refers to rewriting code to use vector operations, improving computational performance. In Python, libraries like NumPy can be used for efficient vectorised implementations.</p>
-</section>
-<section id="standard-pivoting">
-<h3>2.1.6 Standard Pivoting<a class="headerlink" href="#standard-pivoting" title="Permalink to this heading">#</a></h3>
-<p>Pivoting enhances numerical stability during Gaussian elimination. The most common strategies are:</p>
-<ul class="simple">
-<li><p><strong>Partial Pivoting:</strong> Swapping rows to ensure the largest element (by absolute value) is the pivot.</p></li>
-<li><p><strong>Full Pivoting:</strong> Swapping rows and columns for maximum pivot element.</p></li>
-</ul>
-</section>
-<section id="additional-exercises">
-<h3>2.1.7 Additional Exercises<a class="headerlink" href="#additional-exercises" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Implement Gaussian elimination in Python.</p></li>
-<li><p>Experiment with systems that have no solutions or infinite solutions.</p></li>
-</ul>
-</section>
-<section id="additional-computing-activities">
-<h3>2.1.8 Additional Computing Activities<a class="headerlink" href="#additional-computing-activities" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Compare execution time between vectorised and non-vectorised implementations.</p></li>
-<li><p>Use partial pivoting to observe changes in numerical stability.</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="pivoting-strategies-and-round-off-errors">
-<h2>2.2 Pivoting Strategies and Round-Off Errors<a class="headerlink" href="#pivoting-strategies-and-round-off-errors" title="Permalink to this heading">#</a></h2>
-<section id="id2">
-<h3>2.2.1 Motivation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>Pivoting is essential for avoiding division by small numbers, which can cause significant round-off errors. This section explains why certain pivoting strategies are critical in computational methods.</p>
-</section>
-<section id="a-brief-note-on-floating-point-arithmetic">
-<h3>2.2.2 A Brief Note on Floating Point Arithmetic<a class="headerlink" href="#a-brief-note-on-floating-point-arithmetic" title="Permalink to this heading">#</a></h3>
-<p>Floating point arithmetic is prone to rounding errors due to finite precision. Understanding these errors is essential for developing stable numerical algorithms.</p>
-</section>
-<section id="round-off-error-and-gaussian-elimination">
-<h3>2.2.3 Round-Off Error and Gaussian Elimination<a class="headerlink" href="#round-off-error-and-gaussian-elimination" title="Permalink to this heading">#</a></h3>
-<p>Round-off errors accumulate during Gaussian elimination. Appropriate pivoting strategies help minimize these errors.</p>
-</section>
-<section id="partial-pivoting">
-<h3>2.2.4 Partial Pivoting<a class="headerlink" href="#partial-pivoting" title="Permalink to this heading">#</a></h3>
-<p>Partial pivoting selects the largest pivot element in absolute value to reduce round-off errors.</p>
-</section>
-<section id="scaled-partial-pivoting">
-<h3>2.2.5 Scaled Partial Pivoting<a class="headerlink" href="#scaled-partial-pivoting" title="Permalink to this heading">#</a></h3>
-<p>Scaled partial pivoting considers the scale of each row, providing a more balanced approach for numerical stability.</p>
-</section>
-<section id="additional-problems">
-<h3>2.2.6 Additional Problems<a class="headerlink" href="#additional-problems" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Analyze the impact of pivoting on solution accuracy.</p></li>
-<li><p>Implement scaled partial pivoting and compare with standard pivoting.</p></li>
-</ul>
-</section>
-</section>
-<hr class="docutils" />
-<section id="matrix-factorisation">
-<h2>2.3 Matrix Factorisation<a class="headerlink" href="#matrix-factorisation" title="Permalink to this heading">#</a></h2>
-<section id="forward-and-backward-substitution">
-<h3>2.3.1 Forward and Backward Substitution<a class="headerlink" href="#forward-and-backward-substitution" title="Permalink to this heading">#</a></h3>
-<p>Matrix factorisation methods like LU decomposition split a matrix into lower (L) and upper (U) triangular matrices, simplifying the solving process using forward and backward substitution.</p>
-</section>
-<section id="doolittles-lu-factorisation">
-<h3>2.3.2 Doolittle’s LU Factorisation<a class="headerlink" href="#doolittles-lu-factorisation" title="Permalink to this heading">#</a></h3>
-<p>Doolittle’s method produces an LU decomposition where the diagonal of the L matrix consists of ones.</p>
-</section>
-<section id="pseudocode-and-python-implementation">
-<h3>2.3.3 Pseudocode and Python Implementation<a class="headerlink" href="#pseudocode-and-python-implementation" title="Permalink to this heading">#</a></h3>
-<p>This section provides pseudocode and Python examples for implementing Doolittle’s LU factorisation using NumPy.</p>
-</section>
-<section id="other-types-of-factorisations">
-<h3>2.3.4 Other Types of Factorisations<a class="headerlink" href="#other-types-of-factorisations" title="Permalink to this heading">#</a></h3>
-<p>Other factorisation methods include:</p>
-<ul class="simple">
-<li><p><strong>Cholesky Decomposition:</strong> For symmetric, positive-definite matrices.</p></li>
-<li><p><strong>QR Decomposition:</strong> Used for solving least-squares problems.</p></li>
-</ul>
-</section>
-<section id="doolittles-factorisation-from-gaussian-elimination">
-<h3>2.3.5 Doolittle’s Factorisation from Gaussian Elimination<a class="headerlink" href="#doolittles-factorisation-from-gaussian-elimination" title="Permalink to this heading">#</a></h3>
-<p>The LU decomposition can be obtained as a by-product of Gaussian elimination, saving computational resources.</p>
-</section>
-<section id="permutation-matrices">
-<h3>2.3.6 Permutation Matrices<a class="headerlink" href="#permutation-matrices" title="Permalink to this heading">#</a></h3>
-<p>Permutation matrices represent row swaps in pivoting strategies, playing a crucial role in LU factorisation with pivoting.</p>
-</section>
-<section id="special-types-of-matrices">
-<h3>2.3.7 Special Types of Matrices<a class="headerlink" href="#special-types-of-matrices" title="Permalink to this heading">#</a></h3>
-<p>This section covers matrices with properties like diagonal dominance and symmetry, which simplify numerical computations.</p>
-</section>
-<section id="id3">
-<h3>2.3.8 Additional Problems<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Implement LU decomposition without using built-in functions.</p></li>
-<li><p>Investigate how permutation matrices affect the factorisation.</p></li>
-</ul>
-</section>
-<section id="computer-activities">
-<h3>2.3.9 Computer Activities<a class="headerlink" href="#computer-activities" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Compare performance between Gaussian elimination and LU decomposition for large matrices.</p></li>
-<li><p>Visualise permutation matrices in Python using matplotlib.</p></li>
-</ul>
-<hr class="docutils" />
-<p><em>End of Chapter 2: Direct Methods</em></p>
-</section>
 </section>
 </section>
 
@@ -587,8 +432,8 @@ document.write(`
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "Yingurt/scientific-computation-book",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -648,34 +493,6 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-elimination">2.1 Gaussian Elimination</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">2.1.1 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.2 Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-substitution">2.1.3 Backward Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complexity-operation-counts">2.1.4 Complexity (Operation Counts)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorisation">2.1.5 Vectorisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-pivoting">2.1.6 Standard Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-exercises">2.1.7 Additional Exercises</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-computing-activities">2.1.8 Additional Computing Activities</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pivoting-strategies-and-round-off-errors">2.2 Pivoting Strategies and Round-Off Errors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1 Motivation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-note-on-floating-point-arithmetic">2.2.2 A Brief Note on Floating Point Arithmetic</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error-and-gaussian-elimination">2.2.3 Round-Off Error and Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-pivoting">2.2.4 Partial Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scaled-partial-pivoting">2.2.5 Scaled Partial Pivoting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-problems">2.2.6 Additional Problems</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-factorisation">2.3 Matrix Factorisation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forward-and-backward-substitution">2.3.1 Forward and Backward Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-lu-factorisation">2.3.2 Doolittle’s LU Factorisation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode-and-python-implementation">2.3.3 Pseudocode and Python Implementation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-types-of-factorisations">2.3.4 Other Types of Factorisations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doolittles-factorisation-from-gaussian-elimination">2.3.5 Doolittle’s Factorisation from Gaussian Elimination</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">2.3.6 Permutation Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-types-of-matrices">2.3.7 Special Types of Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.3.8 Additional Problems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computer-activities">2.3.9 Computer Activities</a></li>
 </ul>
 </li>
 </ul>

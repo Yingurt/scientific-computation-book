@@ -3,6 +3,7 @@
 ## 2.1 Gaussian Elimination
 
 ### 2.1.1 Motivation
+
 ```{code-cell} python
 # 这是一个可运行的 Python 代码单元格
 def greet(name):
@@ -11,6 +12,15 @@ def greet(name):
 greet("World")
 ```
 Gaussian elimination is a systematic method for solving systems of linear equations. It transforms the system's augmented matrix into a row-echelon form, making it easier to solve for the unknowns through back substitution.
+
+
+```{code-cell} python3
+# 点击上方的 ▶️ 按钮以运行此代码块
+print("Hello, Jupyter Book + Thebe!")
+
+
+
+
 
 ### 2.1.2 Gaussian Elimination
 
