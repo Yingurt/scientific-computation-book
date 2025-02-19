@@ -211,19 +211,59 @@
       "command-palette:打开命令面板": false
     }
   },
+  "floating": {
+    "id": "720a3e6d5be89650",
+    "type": "floating",
+    "children": [
+      {
+        "id": "7451ee9663bfd1c0",
+        "type": "window",
+        "children": [
+          {
+            "id": "7c2464bd2090605c",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c9d761706fb865f7",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "markdown-notebooks.md",
+                    "mode": "preview",
+                    "source": true
+                  },
+                  "icon": "lucide-file",
+                  "title": "markdown-notebooks"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 900,
+        "y": 38,
+        "width": 827,
+        "height": 1039,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "28f9dd812f182285",
   "lastOpenFiles": [
-    "construction.md",
     "markdown-notebooks.md",
     "Code test.md",
-    "intro.md",
+    "construction.md",
+    "chapter1_basics.md",
     "markdown.md",
+    "logo.png",
+    "intro.md",
     "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "construction~.md",
     "intro~.md",
     "_toc~.yml",
     "Chapter 2_basic.md",
-    "chapter1_basics.md",
     "_config~.yml",
     "_build/html/_sources/chapter1_basics.md",
     "_build/html/chapter1_basics.html",
