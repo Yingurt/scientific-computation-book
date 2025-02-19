@@ -207,7 +207,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown 语法指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebooks 教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">代码测试</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">测试交互式代码</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="construction.html">搭建思路</a></li>
 </ul>
 
@@ -447,7 +448,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -463,6 +466,22 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">测试交互式代码</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-files">Markdown Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whether-you-write-your-book-s-content-in-jupyter-notebooks-ipynb-or-in-regular-markdown-files-md-you-ll-write-in-the-same-flavor-of-markdown-called-myst-markdown-this-is-a-simple-file-to-help-you-get-started-and-show-off-some-syntax">Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
+in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
+called <strong>MyST Markdown</strong>.
+This is a simple file to help you get started and show off some syntax.</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -474,7 +493,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>测试交互式代码<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
-<hr class="docutils" />
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="markdown-files">
+<h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Permalink to this heading">#</a></h1>
+<section id="whether-you-write-your-book-s-content-in-jupyter-notebooks-ipynb-or-in-regular-markdown-files-md-you-ll-write-in-the-same-flavor-of-markdown-called-myst-markdown-this-is-a-simple-file-to-help-you-get-started-and-show-off-some-syntax">
+<h2>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
+in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
+called <strong>MyST Markdown</strong>.
+This is a simple file to help you get started and show off some syntax.<a class="headerlink" href="#whether-you-write-your-book-s-content-in-jupyter-notebooks-ipynb-or-in-regular-markdown-files-md-you-ll-write-in-the-same-flavor-of-markdown-called-myst-markdown-this-is-a-simple-file-to-help-you-get-started-and-show-off-some-syntax" title="Permalink to this heading">#</a></h2>
 <p>这是一个测试交互式代码运行按钮的简单页面。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -516,6 +542,7 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>这里是我的图表：</p>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -572,6 +599,28 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">测试交互式代码</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-files">Markdown Files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#whether-you-write-your-book-s-content-in-jupyter-notebooks-ipynb-or-in-regular-markdown-files-md-you-ll-write-in-the-same-flavor-of-markdown-called-myst-markdown-this-is-a-simple-file-to-help-you-get-started-and-show-off-some-syntax">Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
+in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
+called <strong>MyST Markdown</strong>.
+This is a simple file to help you get started and show off some syntax.</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
