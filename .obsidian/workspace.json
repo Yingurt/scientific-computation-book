@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "construction.md",
+                "file": "Code test.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "construction"
+              "title": "Code test"
             }
           }
         ],
@@ -213,8 +213,8 @@
   },
   "active": "28f9dd812f182285",
   "lastOpenFiles": [
-    "Code test.md",
     "construction.md",
+    "Code test.md",
     "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "markdown-notebooks.md",
     "construction~.md",
