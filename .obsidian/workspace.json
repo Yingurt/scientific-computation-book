@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "chapter1_basics.md",
+                "file": "Chapter 2_basic.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "chapter1_basics"
+              "title": "Chapter 2_basic"
             }
           }
         ],
@@ -185,8 +185,12 @@
   },
   "active": "ef9a80aa36578189",
   "lastOpenFiles": [
-    "Chapter 2_basic.md",
+    "_build/html/_sources/chapter1_basics.md",
+    "_build/html/chapter1_basics.html",
+    "_build/html/_sources/Chapter 2_basic.md",
+    "_build/html/Chapter 2_basic.html",
     "chapter1_basics.md",
+    "Chapter 2_basic.md",
     "_toc~.yml",
     "markdown.md",
     "markdown-notebooks.md"
