@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; 科学计算教程</title>
+    <title>Iterative Techniques &#8212; 科学计算教程</title>
   
   
   
@@ -95,6 +95,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Chapter 3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -201,9 +203,10 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter1_basics.html">第一章：科学计算基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter%202_basic.html">第二章：张赢的新征程</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">第3章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown 语法指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks.html">Jupyter Notebooks 教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
@@ -395,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Iterative Techniques</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,9 +407,13 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-n">🎯 目标 (Objective) 求解包含 <span class="math notranslate nohighlight">\(n\)</span> 个方程的线性方程组：</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">迭代公式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
+$$</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -423,7 +430,72 @@ document.write(`
 <p>线性方程组的<strong>迭代方法</strong> 是什么？
 <strong>线性方程组的迭代方法</strong>（Iterative Methods for Linear Systems）是通过逐步逼近求解线性方程组 Ax=bA\mathbf{x} = \mathbf{b}Ax=b 的数值方法。与直接法（如高斯消元法、LU 分解）一次性给出精确解不同，迭代方法从一个初始猜测开始，通过反复更新逐步接近真实解，直到满足某个收敛准则（如残差足够小）。</p>
 </div>
-<p>重点讲解了<strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></p>
+<section class="tex2jax_ignore mathjax_ignore" id="iterative-techniques">
+<h1>Iterative Techniques<a class="headerlink" href="#iterative-techniques" title="Permalink to this heading">#</a></h1>
+<section id="objective-n">
+<h2>🎯 目标 (Objective) 求解包含 <span class="math notranslate nohighlight">\(n\)</span> 个方程的线性方程组：<a class="headerlink" href="#objective-n" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} E_1 &amp;: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &amp;: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &amp;\vdots \\ E_n &amp;: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}\end{split}\]</div>
+<p>在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)</p>
+</section>
+<section id="jacobi-jacobi-iterative-method">
+<h2><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong><a class="headerlink" href="#jacobi-jacobi-iterative-method" title="Permalink to this heading">#</a></h2>
+<p>注意！这里的i非常重要！</p>
+<ul class="simple">
+<li><p>首先，我们从线性方程组的第i个方程开始：
+$<span class="math notranslate nohighlight">\(E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} \)</span>$</p></li>
+<li><p>然后观察方程，我们是可以进行转写的！
+$<span class="math notranslate nohighlight">\(\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \tag{3.3} \end{equation}\)</span>$</p></li>
+<li><p>转写成功后，我们提取出<span class="math notranslate nohighlight">\(a_{ii}\)</span>
+$<span class="math notranslate nohighlight">\(\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}\)</span>$</p></li>
+<li><p>如果<span class="math notranslate nohighlight">\(a_{ii} \neq 0\)</span>，那么我们就可以算出<span class="math notranslate nohighlight">\(x_i\)</span>的值</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation}
+x_i = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j 
++ \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.5}
+\end{equation}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>最后，根据这个公式，我们可以得到关于Jacobi的迭代式子</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>迭代公式<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>The iterative form is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.6} \end{equation}
+$$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
+\end{split}\]</div>
+</section>
+<section id="begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">
+<h2>\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
+$$<a class="headerlink" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\textbf{Algorithm 3.1: Jacobi Iteration} \\
+\hline
+\textbf{Inputs:} n \times n \text{ matrix } A, n \times 1 \text{ vector } \mathbf{b} \\
+\text{ } N_{\max}: \text{ Maximum number of iterations, } \mathbf{x}^{(0)}: \text{ initial approximation} \\
+\textbf{Output:} \mathbf{x}: \text{ approximation to the solution of } A\mathbf{x} = \mathbf{b} \\
+\\
+\textbf{Procedure:} \text{JACOBI}(A, \mathbf{b}, N_{\max}, \mathbf{x}_0) \\
+\text{for } n = 1 \text{ to } N_{\max} \text{ do} \\
+\quad \text{for } i = 1 \text{ to } n \text{ do} \\
+\quad \quad x_i = \frac{1}{a_{ii}} \left( b_i - \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij} x_j^{(0)} \right) \\
+\quad \text{end for} \\
+\quad \mathbf{x}^{(0)} = \mathbf{x} \\
+\text{end for} \\
+\hline
+\end{array}
+\end{split}\]</div>
+<p>这就实现了迭代的基本算法
+以下是 Jacobi 迭代算法的实现。点击 <strong>运行按钮</strong> 来执行代码，或在页面中修改代码以查看不同结果。</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -487,9 +559,13 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-n">🎯 目标 (Objective) 求解包含 <span class="math notranslate nohighlight">\(n\)</span> 个方程的线性方程组：</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">迭代公式</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
+$$</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

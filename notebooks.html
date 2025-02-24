@@ -206,6 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter1_basics.html">第一章：科学计算基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter%202_basic.html">第二章：张赢的新征程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter%203.html">第3章</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown 语法指南</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Jupyter Notebooks 教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
@@ -551,6 +552,25 @@ For example, here’s some sample Matplotlib code:</p>
 </div>
 <p>There is a lot more that you can do with outputs (such as including interactive outputs)
 with your book. For more information about this, see <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 导入自定义的 Jacobi 模块</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jacobi</span><span class="w"> </span><span class="kn">import</span> <span class="n">jacobi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># 定义矩阵和初始值</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">48</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">Nmax</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># 调用 Jacobi 函数</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">jacobi</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">Nmax</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Approximate solution after </span><span class="si">{</span><span class="n">Nmax</span><span class="si">}</span><span class="s2"> iterations: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
