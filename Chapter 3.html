@@ -442,7 +442,7 @@ document.write(`
 <h2>Iterative Techniques<a class="headerlink" href="#iterative-techniques" title="Permalink to this heading">#</a></h2>
 <p>🎯 目标 (Objective) 求解包含 <span class="math notranslate nohighlight">\(n\)</span> 个方程的线性方程组：</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned} E_1 &amp;: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &amp;: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &amp;\vdots \\ E_n &amp;: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}\end{split}\]</div>
+\[\begin{split}\begin{aligned} E_1 &amp;: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &amp;: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &amp;\vdots \\ E_n &amp;: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \end{split}\]</div>
 <p>在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)</p>
 </section>
 <section id="jacobi-jacobi-iterative-method">
@@ -452,17 +452,17 @@ document.write(`
 <li><p>首先，我们从线性方程组的第i个方程开始：</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} \]</div>
+\[E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  \]</div>
 <ul class="simple">
 <li><p>然后观察方程，我们是可以进行转写的！</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} \tag{3.3}\]</div>
+\[\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} \]</div>
 <ul class="simple">
 <li><p>转写成功后，我们提取出<span class="math notranslate nohighlight">\(a_{ii}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}\end{split}\]</div>
+\[\begin{split}\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \end{split}\]</div>
 <ul class="simple">
 <li><p>如果<span class="math notranslate nohighlight">\(a_{ii} \neq 0\)</span>，那么我们就可以算出<span class="math notranslate nohighlight">\(x_i\)</span>的值</p></li>
 </ul>
@@ -470,18 +470,16 @@ document.write(`
 \[\begin{split}
 \begin{equation}
 x_i = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j 
-+ \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.5}
++ \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n 
 \end{equation}
 \end{split}\]</div>
 <ul class="simple">
 <li><p>最后，根据这个公式，我们可以得到关于Jacobi的迭代式子
-迭代公式
-The iterative form is given by:</p></li>
+迭代公式</p></li>
 </ul>
+<p>The iterative form is given by:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.6} \end{equation}
-$$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
+\[\begin{split}\begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \end{equation}$$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
 \end{split}\]</div>
 <p>\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
 $$</p>
@@ -507,8 +505,9 @@ $$</p>
 \end{split}\]</div>
 <p>这就实现了迭代的基本算法
 以下是 Jacobi 迭代算法的实现。点击 <strong>运行按钮</strong> 来执行代码，或在页面中修改代码以查看不同结果。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{admonition} Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 &amp; -1 &amp; 0 \\ -1 &amp; 8 &amp; -1 \\ 0 &amp; -1 &amp; 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $<span class="math notranslate nohighlight">\( A = \begin{bmatrix} 4 &amp; -1 &amp; 0 \\ -1 &amp; 8 &amp; -1 \\ 0 &amp; -1 &amp; 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} \)</span>$  尝试修改初始向量 (x^{(0)}) 并观察收敛性变化。</p>
 </div>
 </section>
 <section id="id1">
@@ -558,22 +557,23 @@ $$</p>
 </table>
 <section id="exercise">
 <h3>🎯 <strong>练习框（Exercise）示例</strong>：<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} 🏋️ Exercise: Jacobi 迭代实验
-:class: exercise
-
-<span class="k">1.</span> <span class="gs">**任务**</span>: 使用 Jacobi 方法解决以下方程组，并观察不同初始猜测的收敛速度。
-
-$$
+<div class="exercise admonition">
+<p class="admonition-title">🏋️ Exercise: Jacobi 迭代实验</p>
+<ol class="arabic simple">
+<li><p><strong>任务</strong>: 使用 Jacobi 方法解决以下方程组，并观察不同初始猜测的收敛速度。</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{aligned}
 4x_1 - x_2 &amp;= 48 \\
-<span class="k">-</span><span class="w"> </span>x<span class="ge">_1 + 8x_</span>2 - x_3 &amp;= 12 \\
-<span class="k">-</span><span class="w"> </span>x<span class="ge">_2 + 4x_</span>3 &amp;= 24
+- x_1 + 8x_2 - x_3 &amp;= 12 \\
+- x_2 + 4x_3 &amp;= 24
 \end{aligned}
-$$
-
-<span class="k">1.</span> <span class="gs">**问题**</span>: 如果将初始向量改为 \([0,0,0]^T\)，结果有何不同？  
-<span class="k">2.</span> <span class="gs">**挑战**</span>: 尝试在代码中引入动态误差计算，判断迭代何时可以提前结束。
-</pre></div>
+\end{split}\]</div>
+<ol class="arabic simple">
+<li><p><strong>问题</strong>: 如果将初始向量改为 ([0,0,0]^T)，结果有何不同？</p></li>
+<li><p><strong>挑战</strong>: 尝试在代码中引入动态误差计算，判断迭代何时可以提前结束。</p></li>
+</ol>
 </div>
 </section>
 </section>
@@ -581,39 +581,13 @@ $$
 <section id="id3">
 <h2>🏃 <strong>3. 为练习方框添加可运行的交互式代码</strong><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>结合 <strong>Thebe</strong> 和 <strong>Binder</strong>，可以在练习框中添加可运行的 Python 代码，让读者在页面上<strong>实时交互</strong>。</p>
-<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} 🏃 Exercise: 运行 Jacobi 方法
-:class: exercise
-
-👉 <span class="gs">**尝试在下面的代码中修改矩阵 \(A\) 或向量 \(b\)，并观察 Jacobi 方法的收敛效果。**</span>
-
-```{code-cell} python3
-:tags: [thebe-interactive]
-
-import numpy as np
-
-def jacobi(A, b, x0, Nmax):
-    n = len(A)
-    x_old = x0.copy()
-    x_new = np.zeros(n)
-    for k in range(Nmax):
-        for i in range(n):
-            s = sum(A[i, j] * x_old[j] for j in range(n) if j != i)
-            x_new[i] = (b[i] - s) / A[i, i]
-        x<span class="ge">_old = x_</span>new.copy()
-    return x_new
-
-<span class="gh"># 📝 用户可以修改这里的输入数据</span>
-A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float)
-b = np.array([48, 12, 24], dtype=float)
-x0 = np.array([1, 1, 1], dtype=float)
-Nmax = 5
-
-x = jacobi(A, b, x0, Nmax)
-print(f&quot;迭代 {Nmax} 次后的近似解: {x}&quot;)
-</pre></div>
+<div class="exercise admonition">
+<p class="admonition-title">🏃 Exercise: 运行 Jacobi 方法</p>
+<p>👉 <strong>尝试在下面的代码中修改矩阵 (A) 或向量 (b)，并观察 Jacobi 方法的收敛效果。</strong></p>
 </div>
 <section id="jacobi-s-method-in-vector-form">
 <h3>Jacobi’s Method in vector form<a class="headerlink" href="#jacobi-s-method-in-vector-form" title="Permalink to this heading">#</a></h3>
+<p>hao</p>
 </section>
 </section>
 </section>
