@@ -410,9 +410,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-techniques">Iterative Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">迭代公式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
-$$</a></li>
 </ul>
             </nav>
         </div>
@@ -436,7 +433,7 @@ $$</a></li>
 <h2>Iterative Techniques<a class="headerlink" href="#iterative-techniques" title="Permalink to this heading">#</a></h2>
 <p>🎯 目标 (Objective) 求解包含 <span class="math notranslate nohighlight">\(n\)</span> 个方程的线性方程组：</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned} E_1 &amp;: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &amp;: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &amp;\vdots \\ E_n &amp;: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \end{split}\]</div>
+\[\begin{split}\begin{aligned} E_1 &amp;: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &amp;: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &amp;\vdots \\ E_n &amp;: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}\end{split}\]</div>
 <p>在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)</p>
 </section>
 <section id="jacobi-jacobi-iterative-method">
@@ -446,12 +443,12 @@ $$</a></li>
 <li><p>首先，我们从线性方程组的第i个方程开始：</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  \]</div>
+\[E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} \]</div>
 <ul class="simple">
 <li><p>然后观察方程，我们是可以进行转写的！</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}\]</div>
+\[\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} \tag{3.3}\]</div>
 <ul class="simple">
 <li><p>转写成功后，我们提取出<span class="math notranslate nohighlight">\(a_{ii}\)</span></p></li>
 </ul>
@@ -468,21 +465,18 @@ x_i = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j
 \end{equation}
 \end{split}\]</div>
 <ul class="simple">
-<li><p>最后，根据这个公式，我们可以得到关于Jacobi的迭代式子</p></li>
+<li><p>最后，根据这个公式，我们可以得到关于Jacobi的迭代式子
+迭代公式
+The iterative form is given by:</p></li>
 </ul>
-</section>
-<section id="id1">
-<h2>迭代公式<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>The iterative form is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.6} \end{equation}
 $$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
 \end{split}\]</div>
-</section>
-<section id="begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">
-<h2>\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
-$$<a class="headerlink" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation" title="Permalink to this heading">#</a></h2>
+<p>\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
+$$</p>
+<hr class="docutils" />
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{array}{l}
@@ -572,9 +566,6 @@ $$<a class="headerlink" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dot
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-techniques">Iterative Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">迭代公式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begin-equation-mathbf-x-0-begin-bmatrix-x-1-0-dots-x-n-0-end-bmatrix-t-end-equation">\begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
-$$</a></li>
 </ul>
   </nav></div>
 

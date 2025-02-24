@@ -11,7 +11,7 @@
 ### Iterative Techniques 
 🎯 目标 (Objective) 求解包含 $n$ 个方程的线性方程组：
 
-$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} $$
+$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}$$
 
 在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)
 
@@ -19,10 +19,10 @@ $$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2
 注意！这里的i非常重要！
 - 首先，我们从线性方程组的第i个方程开始：
 
-$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  $$
+$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} $$
 - 然后观察方程，我们是可以进行转写的！
 
-$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}$$
+$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} \tag{3.3}$$
 - 转写成功后，我们提取出$a_{ii}$
 
 $$\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}$$
@@ -35,7 +35,7 @@ x_i = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j
 \end{equation}
 $$
 - 最后，根据这个公式，我们可以得到关于Jacobi的迭代式子
-### 迭代公式
+迭代公式
 The iterative form is given by:
 
 $$
@@ -44,6 +44,9 @@ $$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The i
 $$
 \begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
 $$
+
+
+
 ---
 $$
 \begin{array}{l}
