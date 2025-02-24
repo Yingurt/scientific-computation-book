@@ -410,6 +410,15 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-techniques">Iterative Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🌟 <strong>效果</strong>：</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🎨 <strong>2. 自定义不同样式的练习方框</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">🎯 <strong>练习框（Exercise）示例</strong>：</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🏃 <strong>3. 为练习方框添加可运行的交互式代码</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-s-method-in-vector-form">Jacobi’s Method in vector form</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -498,6 +507,114 @@ $$</p>
 \end{split}\]</div>
 <p>这就实现了迭代的基本算法
 以下是 Jacobi 迭代算法的实现。点击 <strong>运行按钮</strong> 来执行代码，或在页面中修改代码以查看不同结果。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{admonition} Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 &amp; -1 &amp; 0 \\ -1 &amp; 8 &amp; -1 \\ 0 &amp; -1 &amp; 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>🌟 <strong>效果</strong>：<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>⚡ <strong>Exercise: Jacobi Method Implementation</strong><br />
+给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果。支持公式显示，外观整洁有序。</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h2>🎨 <strong>2. 自定义不同样式的练习方框</strong><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>你可以通过 <code class="docutils literal notranslate"><span class="pre">:class:</span></code> 参数来自定义方框的样式。<strong>Jupyter Book</strong> 默认支持以下样式：</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>样式类名</strong></p></th>
+<th class="head"><p><strong>效果</strong></p></th>
+<th class="head"><p><strong>用途</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">note</span></code></p></td>
+<td><p>ℹ️ 蓝色信息框</p></td>
+<td><p>一般性说明</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warning</span></code></p></td>
+<td><p>⚠️ 黄色警告框</p></td>
+<td><p>警告或注意事项</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tip</span></code></p></td>
+<td><p>💡 绿色提示框</p></td>
+<td><p>提示或建议</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">important</span></code></p></td>
+<td><p>❗ 红色重要提示框</p></td>
+<td><p>强调重要信息</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">seealso</span></code></p></td>
+<td><p>🔗 灰色参考框</p></td>
+<td><p>提供相关内容链接</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">exercise</span></code></p></td>
+<td><p>🏋️ 自定义练习框</p></td>
+<td><p><strong>练习与问题</strong></p></td>
+</tr>
+</tbody>
+</table>
+<section id="exercise">
+<h3>🎯 <strong>练习框（Exercise）示例</strong>：<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} 🏋️ Exercise: Jacobi 迭代实验
+:class: exercise
+
+<span class="k">1.</span> <span class="gs">**任务**</span>: 使用 Jacobi 方法解决以下方程组，并观察不同初始猜测的收敛速度。
+
+$$
+\begin{aligned}
+4x_1 - x_2 &amp;= 48 \\
+<span class="k">-</span><span class="w"> </span>x<span class="ge">_1 + 8x_</span>2 - x_3 &amp;= 12 \\
+<span class="k">-</span><span class="w"> </span>x<span class="ge">_2 + 4x_</span>3 &amp;= 24
+\end{aligned}
+$$
+
+<span class="k">1.</span> <span class="gs">**问题**</span>: 如果将初始向量改为 \([0,0,0]^T\)，结果有何不同？  
+<span class="k">2.</span> <span class="gs">**挑战**</span>: 尝试在代码中引入动态误差计算，判断迭代何时可以提前结束。
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>🏃 <strong>3. 为练习方框添加可运行的交互式代码</strong><a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>结合 <strong>Thebe</strong> 和 <strong>Binder</strong>，可以在练习框中添加可运行的 Python 代码，让读者在页面上<strong>实时交互</strong>。</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>```{admonition} 🏃 Exercise: 运行 Jacobi 方法
+:class: exercise
+
+👉 <span class="gs">**尝试在下面的代码中修改矩阵 \(A\) 或向量 \(b\)，并观察 Jacobi 方法的收敛效果。**</span>
+
+```{code-cell} python3
+:tags: [thebe-interactive]
+
+import numpy as np
+
+def jacobi(A, b, x0, Nmax):
+    n = len(A)
+    x_old = x0.copy()
+    x_new = np.zeros(n)
+    for k in range(Nmax):
+        for i in range(n):
+            s = sum(A[i, j] * x_old[j] for j in range(n) if j != i)
+            x_new[i] = (b[i] - s) / A[i, i]
+        x<span class="ge">_old = x_</span>new.copy()
+    return x_new
+
+<span class="gh"># 📝 用户可以修改这里的输入数据</span>
+A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float)
+b = np.array([48, 12, 24], dtype=float)
+x0 = np.array([1, 1, 1], dtype=float)
+Nmax = 5
+
+x = jacobi(A, b, x0, Nmax)
+print(f&quot;迭代 {Nmax} 次后的近似解: {x}&quot;)
+</pre></div>
+</div>
+<section id="jacobi-s-method-in-vector-form">
+<h3>Jacobi’s Method in vector form<a class="headerlink" href="#jacobi-s-method-in-vector-form" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -566,6 +683,15 @@ $$</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterative-techniques">Iterative Techniques</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-jacobi-iterative-method"><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🌟 <strong>效果</strong>：</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🎨 <strong>2. 自定义不同样式的练习方框</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">🎯 <strong>练习框（Exercise）示例</strong>：</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🏃 <strong>3. 为练习方框添加可运行的交互式代码</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobi-s-method-in-vector-form">Jacobi’s Method in vector form</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

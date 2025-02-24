@@ -106,3 +106,94 @@ Nmax = 5
 x = jacobi(A, b, x0, Nmax) 
 print(f"Approximate solution after {Nmax} iterations: {x}")
 ```
+
+
+
+```
+{admonition} Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 & -1 & 0 \\ -1 & 8 & -1 \\ 0 & -1 & 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
+```
+
+
+
+### 🌟 **效果**：  
+> ⚡ **Exercise: Jacobi Method Implementation**  
+> 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果。支持公式显示，外观整洁有序。
+
+---
+
+## 🎨 **2. 自定义不同样式的练习方框**
+
+你可以通过 `:class:` 参数来自定义方框的样式。**Jupyter Book** 默认支持以下样式：
+
+| **样式类名**    | **效果**     | **用途**    |
+| ----------- | ---------- | --------- |
+| `note`      | ℹ️ 蓝色信息框   | 一般性说明     |
+| `warning`   | ⚠️ 黄色警告框   | 警告或注意事项   |
+| `tip`       | 💡 绿色提示框   | 提示或建议     |
+| `important` | ❗ 红色重要提示框  | 强调重要信息    |
+| `seealso`   | 🔗 灰色参考框   | 提供相关内容链接  |
+| `exercise`  | 🏋️ 自定义练习框 | **练习与问题** |
+
+### 🎯 **练习框（Exercise）示例**：
+
+```markdown
+```{admonition} 🏋️ Exercise: Jacobi 迭代实验
+:class: exercise
+
+1. **任务**: 使用 Jacobi 方法解决以下方程组，并观察不同初始猜测的收敛速度。
+
+$$
+\begin{aligned}
+4x_1 - x_2 &= 48 \\
+- x_1 + 8x_2 - x_3 &= 12 \\
+- x_2 + 4x_3 &= 24
+\end{aligned}
+$$
+
+1. **问题**: 如果将初始向量改为 \([0,0,0]^T\)，结果有何不同？  
+2. **挑战**: 尝试在代码中引入动态误差计算，判断迭代何时可以提前结束。
+```
+
+
+
+---
+
+## 🏃 **3. 为练习方框添加可运行的交互式代码**
+
+结合 **Thebe** 和 **Binder**，可以在练习框中添加可运行的 Python 代码，让读者在页面上**实时交互**。
+
+```markdown
+```{admonition} 🏃 Exercise: 运行 Jacobi 方法
+:class: exercise
+
+👉 **尝试在下面的代码中修改矩阵 \(A\) 或向量 \(b\)，并观察 Jacobi 方法的收敛效果。**
+
+```{code-cell} python3
+:tags: [thebe-interactive]
+
+import numpy as np
+
+def jacobi(A, b, x0, Nmax):
+    n = len(A)
+    x_old = x0.copy()
+    x_new = np.zeros(n)
+    for k in range(Nmax):
+        for i in range(n):
+            s = sum(A[i, j] * x_old[j] for j in range(n) if j != i)
+            x_new[i] = (b[i] - s) / A[i, i]
+        x_old = x_new.copy()
+    return x_new
+
+# 📝 用户可以修改这里的输入数据
+A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float)
+b = np.array([48, 12, 24], dtype=float)
+x0 = np.array([1, 1, 1], dtype=float)
+Nmax = 5
+
+x = jacobi(A, b, x0, Nmax)
+print(f"迭代 {Nmax} 次后的近似解: {x}")
+```
+
+
+### Jacobi's Method in vector form
+
