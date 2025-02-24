@@ -6,8 +6,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; 科学计算教程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>搭建思路 &#8212; 科学计算教程</title>
   
   
   
@@ -71,7 +72,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'construction';</script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/underscore.js?v=e1a751a7"></script>
     <script src="_static/documentation_options.js?v=ae735d58"></script>
@@ -93,8 +94,9 @@
     <script src="_static/scripts/fontawesome.js?v=9b125980"></script>
     <script src="_static/scripts/pydata-sphinx-theme.js?v=e166ff46"></script>
     <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?v=5553df17"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="测试交互式代码" href="Code%20test.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -145,8 +147,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
@@ -200,7 +200,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter1_basics.html">第一章：科学计算基础</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter%202_basic.html">第二章：张赢的新征程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Chapter%203.html">第三章：Iteratioon Method</a></li>
@@ -209,7 +209,7 @@
 <li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">MyST Markdown 使用指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Code%20test.html">测试交互式代码</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="construction.html">搭建思路</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">搭建思路</a></li>
 </ul>
 
     </div>
@@ -286,7 +286,7 @@
       
       
       
-      <li><a href="https://github.com/Yingurt/scientific-computation-book/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Yingurt/scientific-computation-book/issues/new?title=Issue%20on%20page%20%2Fconstruction.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -298,6 +298,54 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/construction.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -342,7 +390,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>搭建思路</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -356,13 +404,44 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>搭建思路<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>首先是对我们的科学计算笔记本的一个定位，它应该具备一个未来笔记的属性，我们在未来遇到困难的时候，可以非常方便地求助于它，同时通过对这个笔记本的完善，我们逐渐成为自己想成为的人；</p>
+<p>这个笔记本是全面的，它能够如实记录我们在课堂上学习到的东西，我们接下来想象几个场景，</p>
+<ol class="arabic simple">
+<li><p>我们在课堂上，直接通过obsidian 进行笔记的记录，如果看到重要的代码，我们可以直接复制到我们的笔记当中，然后我们甚至可以在网页内运行，实时调整，这不是很酷吗</p></li>
+<li><p>通过我们的链接，我们可以输出一个思维导图，看到不同知识之间的关系</p></li>
+<li><p>针对某一些特别有意思的课题，我们甚至可以建立一个专题，通过一个链接点入，进行深度探讨，我们讨论复杂度相关的计算，然后寻找共性，我们可以建立一个伪代码解读的专题，真的是太有意思了！</p></li>
+<li><p>同时我也可以夹带一些小私货，比如个人感想，或者说觉得课堂上有趣的部分，有趣的Typo等等！</p></li>
+<li><p>通过 <strong>MathJax</strong> 渲染复杂数学公式，支持动态展示推导过程。</p></li>
+<li><p>借助 <strong>JupyterLite</strong> 或 <strong>Pyodide</strong>，实现网页内的 Python 代码运行功能，用户无需本地环境即可运行科学计算代码。</p></li>
+<li><p>自动为笔记之间的关联生成知识图谱，使用如 <strong>D3.js</strong> 可视化不同概念的联系。</p></li>
+<li><p>-集成 GitHub，记录每次笔记的修改历史，形成“成长年轮”。</p></li>
+<li><p>在每个学习阶段后写下反思笔记，记录当时的理解和未来的思考方向。</p></li>
+<li><p>集成 AI 工具为每个主题生成总结、关键概念和问题回顾清单，辅助长期记忆</p></li>
+<li><p>如果你想实现协作和共享，考虑使用 <strong>Jupyter Book + Binder</strong> 的同时，增加 GitHub Actions 自动部署与 CI/CD 流程，保持笔记的持续更新与可访问性。</p></li>
+</ol>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "Yingurt/scientific-computation-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -374,6 +453,15 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Code%20test.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">测试交互式代码</p>
+      </div>
+    </a>
 </div>
                 </footer>
               

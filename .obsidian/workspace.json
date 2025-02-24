@@ -241,6 +241,18 @@
   },
   "active": "4423bd2c0d98f235",
   "lastOpenFiles": [
+    "_build/html/_sources/markdown-notebooks.ipynb",
+    "_build/html/_sources/construction.md",
+    "_build/html/construction.html",
+    "_build/html/_sources/_sources/markdown-notebooks.ipynb",
+    "_build/html/_sources/Code test.md",
+    "_build/html/Code test.html",
+    "_build/html/_sources/Code test.ipynb",
+    "_build/html/_sources/Chapter 3.md",
+    "_build/html/Chapter 3.html",
+    "__pycache__/jacobi.cpython-311.pyc",
+    "__pycache__",
+    "_build/jupyter_execute/Code test.ipynb",
     "Code test.md",
     "intro.md",
     "logo.png",
@@ -254,11 +266,7 @@
     "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "construction~.md",
     "intro~.md",
-    "_toc~.yml",
-    "_config~.yml",
     "_build/html/_sources/chapter1_basics.md",
-    "_build/html/chapter1_basics.html",
-    "_build/html/_sources/Chapter 2_basic.md",
-    "_build/html/Chapter 2_basic.html"
+    "_build/html/_sources/Chapter 2_basic.md"
   ]
 }

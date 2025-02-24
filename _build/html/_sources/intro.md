@@ -28,10 +28,12 @@ conda install numpy scipy matplotlib pandas jupyter
 
 - {doc}`chapter1_basics` - 科学计算基础
 - {doc}`Chapter 2_basic` - 科学计算基础
+- {doc}`Chapter 3` - Iterative techniques
 - {doc}`markdown` - Markdown 语法指南
 - {doc}`notebooks` - Jupyter Notebooks 教程
 - {doc}`markdown-notebooks` - MyST Markdown 使用指南
-
+- {doc}`Code test` - 代码测试
+- {doc}`construction` - 搭建思路
 ## 如何使用本教程
 
 1. 按照章节顺序学习，每个主题都建立在前面的知识基础之上
