@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "construction.md",
+                "file": "Chapter 3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "construction"
+              "title": "Chapter 3"
             }
           },
           {
@@ -83,16 +83,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Chapter 3.md",
+                "file": "Chapter 2_basic.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 3"
+              "title": "Chapter 2_basic"
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -239,16 +239,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4363d0637f98b82b",
+  "active": "4423bd2c0d98f235",
   "lastOpenFiles": [
     "chapter1_basics.md",
-    "Chapter 2_basic.md",
-    "Chapter 3.md",
-    "Code test.md",
-    "intro.md",
-    "construction.md",
-    "markdown.md",
     "markdown-notebooks.md",
+    "markdown.md",
+    "construction.md",
+    "Code test.md",
+    "Chapter 3.md",
+    "jacobi.py",
+    "Chapter 2_basic.md",
+    "intro.md",
     "logo.png",
     "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "construction~.md",
