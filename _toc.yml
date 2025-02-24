@@ -8,6 +8,8 @@ chapters:
   title: 第一章：科学计算基础
 - file: Chapter 2_basic
   title: 第二章：张赢的新征程
+- file: Chapter 3
+  title: 第3章
 - file: markdown
   title: Markdown 语法指南
 - file: notebooks
