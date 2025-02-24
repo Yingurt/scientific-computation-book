@@ -28,6 +28,7 @@ conda install numpy scipy matplotlib pandas jupyter
 
 - {doc}`chapter1_basics` - 科学计算基础
 - {doc}`Chapter 2_basic` - 科学计算基础
+- {doc}`Chapter 3 - Iterative techniques
 - {doc}`markdown` - Markdown 语法指南
 - {doc}`notebooks` - Jupyter Notebooks 教程
 - {doc}`markdown-notebooks` - MyST Markdown 使用指南
