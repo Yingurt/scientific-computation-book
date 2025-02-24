@@ -443,12 +443,21 @@ $$</a></li>
 <h2><strong>Jacobi迭代法 (Jacobi Iterative Method)</strong><a class="headerlink" href="#jacobi-jacobi-iterative-method" title="Permalink to this heading">#</a></h2>
 <p>注意！这里的i非常重要！</p>
 <ul class="simple">
-<li><p>首先，我们从线性方程组的第i个方程开始：
-$<span class="math notranslate nohighlight">\(E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  \)</span>$</p></li>
-<li><p>然后观察方程，我们是可以进行转写的！
-$<span class="math notranslate nohighlight">\(\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}\)</span>$</p></li>
-<li><p>转写成功后，我们提取出<span class="math notranslate nohighlight">\(a_{ii}\)</span>
-$<span class="math notranslate nohighlight">\(\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}\)</span>$</p></li>
+<li><p>首先，我们从线性方程组的第i个方程开始：</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  \]</div>
+<ul class="simple">
+<li><p>然后观察方程，我们是可以进行转写的！</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}\]</div>
+<ul class="simple">
+<li><p>转写成功后，我们提取出<span class="math notranslate nohighlight">\(a_{ii}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}\end{split}\]</div>
+<ul class="simple">
 <li><p>如果<span class="math notranslate nohighlight">\(a_{ii} \neq 0\)</span>，那么我们就可以算出<span class="math notranslate nohighlight">\(x_i\)</span>的值</p></li>
 </ul>
 <div class="math notranslate nohighlight">

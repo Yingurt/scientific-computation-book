@@ -18,10 +18,13 @@ $$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2
 ### **Jacobi迭代法 (Jacobi Iterative Method)**
 注意！这里的i非常重要！
 - 首先，我们从线性方程组的第i个方程开始：
+
 $$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  $$
 - 然后观察方程，我们是可以进行转写的！
+
 $$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}$$
 - 转写成功后，我们提取出$a_{ii}$
+
 $$\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}$$
 - 如果$a_{ii} \neq 0$，那么我们就可以算出$x_i$的值
 
@@ -63,6 +66,12 @@ $$
 
 这就实现了迭代的基本算法
 以下是 Jacobi 迭代算法的实现。点击 **运行按钮** 来执行代码，或在页面中修改代码以查看不同结果。 
+
+```{code-cell}
+print("Hello from Thebe and Jupyter Book!")
+```
+
+
 ```{code-cell}
 import numpy as np 
 def jacobi(A, b, x0, Nmax): 
@@ -80,10 +89,17 @@ def jacobi(A, b, x0, Nmax):
 A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float) 
 b = np.array([48, 12, 24], dtype=float) 
 x0 = np.array([1, 1, 1], dtype=float) 
-Nmax = 5 
- %             
+Nmax = 5            
 x = jacobi(A, b, x0, Nmax) 
 print(f"Approximate solution after {Nmax} iterations: {x}")
 ```
 
 
+```{code-cell}
+A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float) 
+b = np.array([48, 12, 24], dtype=float) 
+x0 = np.array([1, 1, 1], dtype=float) 
+Nmax = 5            
+x = jacobi(A, b, x0, Nmax) 
+print(f"Approximate solution after {Nmax} iterations: {x}")
+```
