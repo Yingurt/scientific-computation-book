@@ -1,3 +1,4 @@
+# Chapter 3: Ietration Method
 本章主要介绍了线性方程组的**迭代方法** (Iterative Techniques)
 
 ```{note}
@@ -7,19 +8,19 @@
 
 
 
-# Iterative Techniques 
-#### 🎯 目标 (Objective) 求解包含 $n$ 个方程的线性方程组：
+### Iterative Techniques 
+🎯 目标 (Objective) 求解包含 $n$ 个方程的线性方程组：
 
-$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}$$
+$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} $$
 
 在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)
 
 ### **Jacobi迭代法 (Jacobi Iterative Method)**
 注意！这里的i非常重要！
 - 首先，我们从线性方程组的第i个方程开始：
-$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} $$
+$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  $$
 - 然后观察方程，我们是可以进行转写的！
-$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \tag{3.3} \end{equation}$$
+$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation}$$
 - 转写成功后，我们提取出$a_{ii}$
 $$\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}$$
 - 如果$a_{ii} \neq 0$，那么我们就可以算出$x_i$的值
@@ -80,7 +81,7 @@ A = np.array([[4, -1, 0], [-1, 8, -1], [0, -1, 4]], dtype=float)
 b = np.array([48, 12, 24], dtype=float) 
 x0 = np.array([1, 1, 1], dtype=float) 
 Nmax = 5 
-
+ %             
 x = jacobi(A, b, x0, Nmax) 
 print(f"Approximate solution after {Nmax} iterations: {x}")
 ```
