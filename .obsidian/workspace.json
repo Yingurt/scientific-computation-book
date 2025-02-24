@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro.md",
+                "file": "Chapter 3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "intro"
+              "title": "Chapter 3"
             }
           }
         ],
@@ -241,6 +241,7 @@
   },
   "active": "4363d0637f98b82b",
   "lastOpenFiles": [
+    "intro.md",
     "Chapter 3.md",
     "Chapter 2_basic.md",
     "chapter1_basics.md",
@@ -249,7 +250,6 @@
     "markdown.md",
     "markdown-notebooks.md",
     "logo.png",
-    "intro.md",
     "MATH2105-Scientific-Computation.--br--Lecture-Notes.pdf",
     "construction~.md",
     "intro~.md",
