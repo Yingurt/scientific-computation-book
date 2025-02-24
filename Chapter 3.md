@@ -11,7 +11,7 @@
 ### Iterative Techniques 
 🎯 目标 (Objective) 求解包含 $n$ 个方程的线性方程组：
 
-$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} \tag{3.1}$$
+$$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2 &: a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2 \\ &\vdots \\ E_n &: a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n \end{aligned} $$
 
 在Chapter 2中，我们所介绍的是通过用高斯消除法来解决问题，今天，我们讲解通过Jacobi 迭代法来解决问题(Jacobi Iterative Method)
 
@@ -19,28 +19,27 @@ $$\begin{aligned} E_1 &: a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1 \\ E_2
 注意！这里的i非常重要！
 - 首先，我们从线性方程组的第i个方程开始：
 
-$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n \tag{3.2} $$
+$$E_i: \quad a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \quad i = 1, \dots, n  $$
 - 然后观察方程，我们是可以进行转写的！
 
-$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} \tag{3.3}$$
+$$\begin{equation} \sum_{j=1}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n  \end{equation} $$
 - 转写成功后，我们提取出$a_{ii}$
 
-$$\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} \tag{3.4}$$
+$$\begin{equation} a_{ii}x_i + \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j = b_i, \quad i = 1, \dots, n \end{equation} $$
 - 如果$a_{ii} \neq 0$，那么我们就可以算出$x_i$的值
 
 $$
 \begin{equation}
 x_i = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j 
-+ \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.5}
++ \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n 
 \end{equation}
 $$
 - 最后，根据这个公式，我们可以得到关于Jacobi的迭代式子
 迭代公式
+
 The iterative form is given by:
 
-$$
-\begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \tag{3.6} \end{equation}
-$$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
+$$\begin{equation} x_i^{(k)} = -\frac{1}{a_{ii}} \sum_{\substack{j=1 \\ j \neq i}}^{n} a_{ij}x_j^{(k-1)} + \frac{b_i}{a_{ii}}, \quad i = 1, \dots, n \end{equation}$$where $x_i^{(k)}$ represents the value of $x_i$ at the $k$-th iteration. The initial guess is given by:
 $$
 \begin{equation*} \mathbf{x}^{(0)} = \begin{bmatrix} x_1^{(0)}, \dots, x_n^{(0)} \end{bmatrix}^t \end{equation*}
 $$
@@ -109,10 +108,14 @@ print(f"Approximate solution after {Nmax} iterations: {x}")
 
 
 
-```
-{admonition} Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 & -1 & 0 \\ -1 & 8 & -1 \\ 0 & -1 & 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
+```{exercise}
+Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 & -1 & 0 \\ -1 & 8 & -1 \\ 0 & -1 & 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
 ```
 
+
+```{note}
+Exercise: Jacobi Method Implementation :class: tip 给定以下矩阵和初始向量，使用 Jacobi 方法进行 10 次迭代并计算结果：  $$ A = \begin{bmatrix} 4 & -1 & 0 \\ -1 & 8 & -1 \\ 0 & -1 & 4 \end{bmatrix}, \quad b = \begin{bmatrix} 48 \\ 12 \\ 24 \end{bmatrix}, \quad x^{(0)} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$  尝试修改初始向量 \(x^{(0)}\) 并观察收敛性变化。 
+```
 
 
 ### 🌟 **效果**：  
@@ -136,7 +139,7 @@ print(f"Approximate solution after {Nmax} iterations: {x}")
 
 ### 🎯 **练习框（Exercise）示例**：
 
-```markdown
+
 ```{admonition} 🏋️ Exercise: Jacobi 迭代实验
 :class: exercise
 
@@ -162,7 +165,7 @@ $$
 
 结合 **Thebe** 和 **Binder**，可以在练习框中添加可运行的 Python 代码，让读者在页面上**实时交互**。
 
-```markdown
+
 ```{admonition} 🏃 Exercise: 运行 Jacobi 方法
 :class: exercise
 
@@ -197,3 +200,4 @@ print(f"迭代 {Nmax} 次后的近似解: {x}")
 
 ### Jacobi's Method in vector form
 
+hao
